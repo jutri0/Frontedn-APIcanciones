@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Albumes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+<body class="bg-dark">
+    <div class="container mt-5 ">
+        <a href="{{ url_for('menu') }}" class="btn btn-primary">Volver al Menú</a><br>
+        <div class="p-3 mb-2 bg-danger text-white rounded">
+            <h1>Listado de Albumes</h1>
+        </div>
+            <table class="table table-striped table-hover">
+                <thead class="table-danger">
+                    <tr>
+                    <th>Título</th>
+                    <th>Año</th>
+                    <th>Descripción</th>
+                    <th>Medio</th>
+                    <th>Canciones</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for album in albumes %}
+                    <tr>
+                        <td>{{ album.titulo }}</td>
+                        <td>{{ album.anio }}</td>
+                        <td>{{ album.descripcion }}</td>
+                        <td>{{ album.medio }}</td>
+                        <td>
+                        <ul>
+                            {% for cancion in album.canciones %}
+                            <li>{{ cancion.titulo }}</li>
+                            {% endfor %}
+                        </ul>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+
+</body>
+</html>
+
